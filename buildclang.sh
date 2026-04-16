@@ -143,6 +143,7 @@ make -j$(nproc --all) \
   ARCH=arm64 \
   O=out \
   CC=clang \
+  CLANG_TRIPLE=aarch64-linux-gnu- \
   CROSS_COMPILE=aarch64-linux-gnu- \
   CROSS_COMPILE_ARM32=arm-linux-gnueabi- || {
         send_telegram_error
