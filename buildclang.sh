@@ -15,7 +15,7 @@ KIMG_DTB="$OUTDIR/Image.gz-dtb"
 KIMG="$OUTDIR/Image.gz"
 
 # ========== TOOLCHAIN (CLANG) ===========
-export PATH="$ROOTDIR/weebx-clang/bin:$PATH"
+export PATH="$ROOTDIR/clang-zyc/bin:$PATH"
 
 # ================= INFO =================
 KERNEL_NAME="ReLIFE"
@@ -48,9 +48,9 @@ clone_anykernel() {
 
 get_toolchain_info() {
     if command -v clang >/dev/null 2>&1; then
-        if clang --version | grep -qi "weebx\|xsans0"; then
+        if clang --version | grep -qi "zyc\|zycromerz"; then
             CLANG_VER=$(clang --version | head -n1 | sed 's/.*version //')
-            TC_INFO="WeebX Clang ${CLANG_VER}"
+            TC_INFO="ZYC Clang ${CLANG_VER}"
         else
             CLANG_VER=$(clang --version | head -n1)
             TC_INFO="Clang (${CLANG_VER})"
